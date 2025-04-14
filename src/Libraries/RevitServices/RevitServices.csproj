@@ -53,14 +53,6 @@ limitations under the License.
 			<HintPath>$(PACKAGESPATH)\Prism\lib\NET40\Microsoft.Practices.Prism.dll</HintPath>
 			<Private>False</Private>
 		</Reference>
-		<Reference Include="RevitAPI">
-			<HintPath>$(REVITAPI)\RevitAPI.dll</HintPath>
-			<Private>False</Private>
-		</Reference>
-		<Reference Include="RevitAPIUI">
-			<HintPath>$(REVITAPI)\RevitAPIUI.dll</HintPath>
-			<Private>False</Private>
-		</Reference>
 		<PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
 	</ItemGroup>
 	<ItemGroup>
@@ -86,6 +78,12 @@ limitations under the License.
 			<HintPath Condition="!Exists('$(DYNAMOBUILDPATH)')">$(PACKAGESPATH)\DynamoVisualProgramming.Core\lib\$(DCoreLibSubFolder)\ProtoCore.dll</HintPath>
 			<HintPath Condition=" Exists('$(DYNAMOBUILDPATH)')">$(DYNAMOBUILDPATH)\ProtoCore.dll</HintPath>
 			<Private>False</Private>
+		</Reference>
+		<Reference Include="RevitAPI">
+		  <HintPath>..\..\..\lib\Revit Preview Release\net48\RevitAPI.dll</HintPath>
+		</Reference>
+		<Reference Include="RevitAPIUI">
+		  <HintPath>..\..\..\lib\Revit Preview Release\net48\RevitAPIUI.dll</HintPath>
 		</Reference>
 	</ItemGroup>
 	<ItemGroup>

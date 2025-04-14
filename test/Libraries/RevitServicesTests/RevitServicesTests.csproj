@@ -74,4 +74,59 @@ limitations under the License.
     <ProjectReference Include="$(SolutionDir)DynamoRevit\DynamoRevit.csproj" />
     <ProjectReference Include="$(SolutionDir)Libraries\RevitServices\RevitServices.csproj" />
   </ItemGroup>
+	<ImportGroup Label="PropertySheets">
+		<Import Project="$(SolutionDir)Config\CS_SDK.props" />
+	</ImportGroup>
+	<PropertyGroup>
+		<ProductVersion>8.0.30703</ProductVersion>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<OutputPath>$(TestOutputPath)</OutputPath>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>full</DebugType>
+		<Optimize>false</Optimize>
+		<DefineConstants>DEBUG;TRACE</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+		<PlatformTarget>AnyCPU</PlatformTarget>
+		<Prefer32Bit>false</Prefer32Bit>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+		<DebugType>pdbonly</DebugType>
+		<Optimize>true</Optimize>
+		<DefineConstants>TRACE</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+		<DebugSymbols>true</DebugSymbols>
+		<Prefer32Bit>false</Prefer32Bit>
+	</PropertyGroup>
+	<ItemGroup>
+		<Reference Include="Newtonsoft.Json">
+			<HintPath>$(PACKAGESPATH)\Newtonsoft.Json\lib\net45\Newtonsoft.Json.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="nunit.framework">
+			<HintPath>$(PACKAGESPATH)\NUnit\lib\netstandard2.0\nunit.framework.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="RevitAPI">
+		  <HintPath>..\..\..\lib\Revit Preview Release\net48\RevitAPI.dll</HintPath>
+		</Reference>
+		<Reference Include="RevitAPIUI">
+		  <HintPath>..\..\..\lib\Revit Preview Release\net48\RevitAPIUI.dll</HintPath>
+		</Reference>
+		<Reference Include="RTFRevit, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+			<HintPath>..\..\..\extern\RevitTestFramework\RTFRevit.dll</HintPath>
+			<Private>False</Private>
+			<SpecificVersion>False</SpecificVersion>
+		</Reference>
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Include="$(SolutionDir)AssemblySharedInfoGenerator\AssemblySharedInfo.cs" Link="AssemblySharedInfo.cs" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="$(SolutionDir)DynamoRevit\DynamoRevit.csproj" />
+		<ProjectReference Include="$(SolutionDir)Libraries\RevitServices\RevitServices.csproj" />
+	</ItemGroup>
 </Project>
